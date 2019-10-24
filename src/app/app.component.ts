@@ -16,14 +16,22 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'retrait',
-      url: '/retrait',
-      icon: 'retrait'
+      title: 'transfere',
+      url: '/transfere',
     },
     {
-      title: 'envoie',
-      url: '/envoie',
-      icon: 'envoie'
+      title: 'retrait',
+      url: '/retrait',
+    },
+    {
+      title: 'liste transfere',
+      url: '/liste transfere',
+      
+    },
+    {
+      title: 'liste retrait',
+      url: '/liste retrait',
+      
     },
   ];
   constructor(

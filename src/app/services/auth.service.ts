@@ -33,6 +33,16 @@ export class AuthService {
             }),
         );
     }
+    transfere(Nomexp: String, Prenomexp: String, Telephoneexp: number, Nomrecep: String, Prenomrecep: String, Telephonerecep: number, Codeenvoie: number, Montanttotal: number) {
+        return this.http.post(this.env.API_ULL ,
+            {Nomexp: Nomexp, Prenomexp: Prenomexp, Telephoneexp: Telephoneexp, Nomrecep: Nomrecep, Prenomrecep: Prenomrecep, Telephonerecep: Telephonerecep, Codeenvoie:Codeenvoie, Montanttotal: Montanttotal}
+        )
+    }
+    retrait(  Codeenvoie: number) {
+        return this.http.post(this.env.API_UCL ,
+            {  Codeenvoie:Codeenvoie}
+        )
+    }
     register(fName: String, lName: String, username: String, password: String) {
         return this.http.post(this.env.API_URL ,
             {fName: fName, lName: lName, username: username, password: password}

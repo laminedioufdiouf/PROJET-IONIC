@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'register', loadChildren: './pages/auth/register/register.module#RegisterPageModule' },
 
   { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule', canActivate: [AuthGuard] },
+  { path: 'transfere', loadChildren: './pages/transfere/transfere.module#TransferePageModule' },
+  { path: 'retrait', loadChildren: './pages/retrait/retrait.module#RetraitPageModule' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

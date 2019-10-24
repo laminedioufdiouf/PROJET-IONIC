@@ -1,0 +1,13 @@
+<form [formGroup]="transfere" (ngSubmit)="logForm()">
+    <h3 style="text-align: center;">retrait</h3>
+<ion-item>
+  <ion-label>codeenvoie</ion-label>
+  <ion-input type="number" formControlName="codeenvoie"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>cni</ion-label>
+  <ion-input type="number" formControlName="cni"></ion-input>
+</ion-item>
+<button ion-button type="submit" style="text-align: center;" [disabled]="!transfere.valid">Submit</button>
+</form>`
+
