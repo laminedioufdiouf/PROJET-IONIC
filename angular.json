@@ -32,8 +32,11 @@
               }
             ],
             "styles": [
+              "src/styles.scss",
+                "node_modules/ngx-toastr/toastr.css",
               {
                 "input": "src/theme/variables.scss"
+                
               },
               {
                 "input": "src/global.scss"

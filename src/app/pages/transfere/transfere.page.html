@@ -1,37 +1,54 @@
-
-    <form [formGroup]="transfere" (ngSubmit)="logForm()">
-          <h3 style="text-align: center;">envoie</h3>
+  <ion-header>
+    <ion-toolbar>
+      <ion-button color="light" (click)="dismissRegister()">Close</ion-button>
+      <ion-title>Transfere</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    <form #form="ngForm" (ngSubmit)="transfere(form)" method="post">
       <ion-item>
-        <ion-label>Nomexp</ion-label>
-        <ion-input type="text" formControlName="nomexp"></ion-input>
+          <ion-label position="floating">Nomexp</ion-label>
+          <ion-input ngModel name="nomexp"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Prenomexp</ion-label>
+        <ion-input ngModel name="prenomexp"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Telephoneexp</ion-label>
+        <ion-input type="number" ngModel name="telephoneexp"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>prenomexp</ion-label>
-        <ion-input type="text" formControlName="prenomexp"></ion-input>
+          <ion-label position="floating">Nomrecep</ion-label>
+          <ion-input ngModel name="nomrecep"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Prenomrecep</ion-label>
+        <ion-input ngModel name="prenomrecep"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Telephonerecep</ion-label>
+        <ion-input type="number" ngModel name="telephonerecep"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label position="floating">Montantenvoie</ion-label>
+        <ion-input type="number" ngModel name="montantenvoie"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>telephoneexp</ion-label>
-        <ion-input type="number" formControlName="telephoneexp"></ion-input>
+          <ion-label position="floating">Montanttotal</ion-label>
+          <ion-input type="number" ngModel name="montanttotal"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label>nomrecep</ion-label>
-        <ion-input type="text" formControlName="nomrecep"></ion-input>
+          <ion-label position="floating">Numerocompte</ion-label>
+          <ion-input type="number" ngModel name="Numerocompte"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label>prenomrecep</ion-label>
-        <ion-input type="text" formControlName="prenomrecep"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>telephonerecep</ion-label>
-        <ion-input type="number" formControlName="telephonerecep"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Codeenvoie</ion-label>
-        <ion-input type="number" formControlName="codeenvoie"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label>Montanttotal</ion-label>
-        <ion-input type="number" formControlName="montanttotal"></ion-input>
-      </ion-item>
-      <button ion-button type="submit" style="text-align: center;" [disabled]="!transfere.valid">Submit</button>
-    </form>`
+    
+      <ion-button type="submit" expand="full" color="danger">submit</ion-button>
+    </form>
+    
+  </ion-content>  

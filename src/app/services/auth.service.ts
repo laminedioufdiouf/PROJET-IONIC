@@ -11,15 +11,19 @@ import { tokenName } from '@angular/compiler';
 export class AuthService {
     isLoggedIn = false;
     token:any;
+    _transfere: string;
+    headers: HttpHeaders | { [header: string]: string | string[]; };
     constructor(
         private http: HttpClient,
         private storage: NativeStorage,
         private env: EnvService,
     ) { }
     login(username: String, password: String) {
-        return this.http.post(this.env.API_URL, {username: username, password: password}).pipe(
+        return this.http.post<any>(this.env.API_URL, 
+            {username: username, password: password}).pipe(
             
             tap(token => {
+                
                 this.storage.setItem('token',token)
                     .then(
                         () => {
@@ -33,11 +37,13 @@ export class AuthService {
             }),
         );
     }
-    transfere(Nomexp: String, Prenomexp: String, Telephoneexp: number, Nomrecep: String, Prenomrecep: String, Telephonerecep: number, Codeenvoie: number, Montanttotal: number) {
-        return this.http.post(this.env.API_ULL ,
-            {Nomexp: Nomexp, Prenomexp: Prenomexp, Telephoneexp: Telephoneexp, Nomrecep: Nomrecep, Prenomrecep: Prenomrecep, Telephonerecep: Telephonerecep, Codeenvoie:Codeenvoie, Montanttotal: Montanttotal}
+    transfere(nomexp: String, prenomexp: String, telephoneexp: Number, nomrecep: String, prenomrecep: String, telephonerecep: Number, montantenvoie: Number, montanttotal: Number, numerocompte: Number) {
+        var headers= new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+        return this.http.post<any>(this.env.API_ULL ,
+          {nomexp: nomexp, prenomexp: prenomexp, telephoneexp: telephoneexp, nomrecep: nomrecep, prenomrecep: prenomrecep, telephonerecep:telephonerecep, montantenvoie: montantenvoie, montanttotal: montanttotal, numerocompte: numerocompte} , {headers:headers}
         )
-    }
+      }
+    
     retrait(  Codeenvoie: number) {
         return this.http.post(this.env.API_UCL ,
             {  Codeenvoie:Codeenvoie}

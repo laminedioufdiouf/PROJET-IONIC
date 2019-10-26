@@ -35,15 +35,15 @@ jwt = new JwtHelperService;
   }
   login(form) {
     this.authService.login(form.value.username, form.value.password).subscribe(
-        (data) => {
+        data => {
           this.alertService.presentToast("Logged In");
     
           if (data) {
-                       //localStorage.setItem('token', data.token);
-                       //const Decode = this.jwt.decodeToken(data.token);
-                       //localStorage.setItem('username', Decode.username);
-                       //localStorage.setItem('roles', Decode.roles[0]);
-                       //localStorage.setItem('nom', Decode.nom);
+                       localStorage.setItem('token', data.token);
+                       const Decode = this.jwt.decodeToken(data.token);
+                       localStorage.setItem('username', Decode.username);
+                        localStorage.setItem('roles', Decode.roles[0]);
+                       localStorage.setItem('nom', Decode.nom);
                
                   }
         },
